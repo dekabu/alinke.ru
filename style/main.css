@@ -1,0 +1,9 @@
+@font-face {
+	font-family: MinionPro;	
+	src: url(fonts/MinionPro-Regular.woff2)
+}
+
+body {
+	font-family: MinionPro;
+	background: #ffd7c4;
+}
