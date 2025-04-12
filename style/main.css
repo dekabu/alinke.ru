@@ -31,11 +31,12 @@ header {
 	padding: 10px;
 	background: rgba(0, 0, 0, .5);
 	backdrop-filter: blur(5px);
-	font-size: 26px;
 	color: white;
+	transition: .2s;
 }
 
-header p {
+header h2 {
+	font-size: 25px;
 	user-select: none;
 }
 
@@ -44,12 +45,13 @@ header p {
 }
 
 .stih {
-	padding-bottom: 40px;
+	padding-bottom: 100px;
 }
 
-h2 {
-	font-size: 26px;
-	padding: 10px
+.stih h2 {
+	font-size: 25px;
+	padding: 10px;
+	padding-bottom: 15px
 }
 
 a {

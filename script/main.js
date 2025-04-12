@@ -1,3 +1,4 @@
+header = document.getElementsByTagName('header')[0]
 title = document.getElementById('title')
 
 stihi = document.getElementsByClassName('stih')
@@ -8,12 +9,13 @@ for (i = 0; i < stihi.length; ++i)
 
 function changeTitle() {
 	offset = window.scrollY
-	if (offset < 100) {
-		title.innerText = 'Алине.ру'
+	if (offset < 50) {
+		header.style.opacity = 0
 		return
 	}
+	header.style.opacity = 1
 	for (i = array.length - 1; i >= 0; --i)
-		if (array[i][0] - 50 <= offset) {
+		if (array[i][0] - 110 <= offset) {
 			title.innerText = array[i][1]
 			break
 		}
