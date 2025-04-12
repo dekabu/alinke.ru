@@ -5,8 +5,65 @@
 
 * {
 	font-family: MinionPro;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	background: #ffd7c4;
+	font-size: 20px
+}
+
+body.dark {
+	background: #1a1413;
+	color: white
+}
+
+body *::selection {
+	background: #332927;
+	color: white
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 10px;
+	background: rgba(0, 0, 0, .5);
+	backdrop-filter: blur(5px);
+	font-size: 26px;
+	color: white;
+}
+
+header p {
+	user-select: none;
+}
+
+.stih:first-of-type {
+	margin-top: 100px
+}
+
+.stih {
+	padding-bottom: 40px;
+}
+
+h2 {
+	font-size: 26px;
+	padding: 10px
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: black
+}
+
+a:visited {
+	color: black
+}
+
+pre {
+	margin-left: 10px
 }
