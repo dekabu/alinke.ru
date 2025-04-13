@@ -33,7 +33,7 @@ header {
 	background: rgba(0, 0, 0, .5);
 	backdrop-filter: blur(5px);
 	color: white;
-	transition: .2s;
+	transition: .5s;
 }
 
 header h2 {
@@ -69,4 +69,8 @@ a:visited {
 
 pre {
 	margin-left: 10px
+}
+
+#signature {
+	margin-right: 40px;
 }
