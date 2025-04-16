@@ -1,3 +1,5 @@
 *.old
 
+scripts/text
+
 www/index.html
