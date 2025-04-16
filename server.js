@@ -9,7 +9,7 @@ console.log(db.length, 'стихов: ')
 db.forEach(data => console.log(' -*-', data.title))
 console.log()
 
-html = fs.readFileSync('templates/html1')
+html = fs.readFileSync('templates/1.html')
 
 db.forEach(data => {
 	html += `
@@ -29,7 +29,7 @@ db.forEach(data => {
 `
 })
 
-html += fs.readFileSync('templates/html2')
+html += fs.readFileSync('templates/2.html')
 
 fs.writeFileSync('www/index.html', html)
 
