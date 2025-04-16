@@ -1,5 +1,7 @@
 *.old
 
+config.json
+
 scripts/text
 
 www/index.html

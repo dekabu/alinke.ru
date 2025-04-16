@@ -1,13 +1,30 @@
+const http = require('http')
 const https = require('https')
 const fs = require('fs')
 
-const options = {
+var HTTPS 
+
+if (fs.existsSync('config.json')) {
+	config = JSON.parse(fs.readFileSync('config.json'))
+
+	HTTPS = config.HTTPS
+
+	PORT = config.PORT
+}
+else {
+	HTTPS = true	
+	PORT = 443
+}
+
+console.log(`HTTP${HTTPS ? 's' : ''}, ${PORT} порт.\n`)
+
+const serv_type = HTTPS ? https : http
+
+const options = HTTPS ? {
 	key: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/privkey.pem'),
 	cert: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/cert.pem'),
 	ca: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/chain.pem'),
-}
-
-const PORT = 443
+} : {}
 
 db = JSON.parse(fs.readFileSync('db.json'))
 
@@ -41,7 +58,7 @@ fs.writeFileSync('www/index.html', html)
 
 console.log('HTML-файл успешно создан!\n')
 
-const server = https.createServer(options, (req, res) => {
+const server = serv_type.createServer(options, (req, res) => {
 	const url = new URL(req.url, 'https://localhost')
 	p = url.pathname.split('/').filter((item) => {
 		return item != ''
@@ -61,4 +78,4 @@ const server = https.createServer(options, (req, res) => {
 	}
 })
 
-server.listen(PORT, console.log(`Сервер успешно запущен на порту ${PORT}!`))
+server.listen(PORT, console.log(`Сервер успешно запущен!`))
