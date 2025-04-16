@@ -1,7 +1,13 @@
-const http = require('http')
+const https = require('https')
 const fs = require('fs')
 
-const PORT = 2000
+const options = {
+	key: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/privkey.pem'),
+	cert: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/cert.pem'),
+	ca: fs.readFileSync('/etc/letsencrypt/live/alinke.ru/chain.pem'),
+}
+
+const PORT = 443
 
 db = JSON.parse(fs.readFileSync('db.json'))
 
@@ -35,7 +41,7 @@ fs.writeFileSync('www/index.html', html)
 
 console.log('HTML-файл успешно создан!\n')
 
-const server = http.createServer((req, res) => {
+const server = https.createServer(options, (req, res) => {
 	const url = new URL(req.url, 'https://localhost')
 	p = url.pathname.split('/').filter((item) => {
 		return item != ''
