@@ -73,8 +73,14 @@ const server = serv_type.createServer(options, (req, res) => {
 		res.end(data)
 	}
 	else {
-		data = fs.readFileSync('www' + url.pathname)
-		res.end(data)
+		p = 'www' + url.pathname
+
+		if (fs.existsSync(p)) {
+			data = fs.readFileSync('www' + url.pathname)
+			res.end(data)
+		}
+		else
+			res.end('File is not found! :(')
 	}
 })
 
