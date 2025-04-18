@@ -59,7 +59,13 @@ fs.writeFileSync('www/index.html', html)
 console.log('HTML-файл успешно создан!\n')
 
 const server = serv_type.createServer(options, (req, res) => {
+
+	date = new Date()
+
 	const url = new URL(req.url, 'https://localhost')
+
+	console.error(`${date} ${req.socket.remoteAddress} сделал запрос: ${url.pathname}`)
+
 	p = url.pathname.split('/').filter((item) => {
 		return item != ''
 	})
